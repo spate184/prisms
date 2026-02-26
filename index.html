@@ -141,6 +141,57 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+/* ================= MOBILE FRIENDLY ================= */
+@media (max-width: 768px){
+
+  /* Navbar stacks nicely */
+  .navInner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Tabs wrap on smaller screens */
+  .tabs{
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  /* Buttons get easier to tap */
+  .tabBtn{
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  /* Cards go full width */
+  .card{
+    grid-column: span 12;
+  }
+
+  /* Better spacing */
+  .wrap{
+    padding: 16px 12px 30px;
+  }
+
+  /* Hero text scales better */
+  .hero h1{
+    font-size: 22px;
+  }
+
+  /* Tables scroll instead of breaking the page */
+  table{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Students list: 1 column */
+  .people{
+    grid-template-columns: 1fr;
+  }
   </style>
 </head>
 
@@ -339,7 +390,6 @@
           </div>
 
           <div class="card">
-            <div class="card">
   <h3>Students</h3>
 
   <div class="people">
@@ -432,4 +482,5 @@
     }
   </script>
 </body>
+
 </html>
