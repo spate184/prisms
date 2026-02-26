@@ -53,17 +53,24 @@
     .navLogo img{width:38px;height:auto;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.25));}
     .navLogo span{font-weight:900;letter-spacing:0.20em;}
 
+    /* Tabs (desktop) */
     .tabs{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:16px;
-  width:100%;
-  margin-top:10px;
-}
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:16px;
+      width:100%;
+      margin-top:0;
+      margin-left:auto;
+      flex-wrap:wrap;
+    }
     .tabBtn{
-      background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
-      color:white;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:800;font-size:13px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      color:white;padding:8px 12px;border-radius:999px;
+      cursor:pointer;font-weight:800;font-size:13px;
+      width:auto;
+      margin-top:0;
     }
     .tabBtn.active{background:white;color:var(--dark);border-color:white;}
 
@@ -84,6 +91,14 @@
     .card p, .card li{color:var(--muted);line-height:1.5;}
     .card ul{margin:8px 0 0 18px;}
 
+    /* Link styling */
+    .card a{
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .card a:hover{ text-decoration: underline; }
+
     .panel{display:none;margin-top:18px;}
     .panel.active{display:block;}
 
@@ -95,103 +110,113 @@
     @media (max-width:900px){
       .card{grid-column:span 12;}
     }
-.people{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 12px;
-}
 
-.person{
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: #fbfdff;
-}
+    /* Students (people) */
+    .people{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .person{
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fbfdff;
+    }
+    .personName{
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #0f172a;
+    }
+    .personMeta{
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .personLink{
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .personLink:hover{
+      text-decoration: underline;
+    }
+    @media (min-width: 900px){
+      .people{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
-.personName{
-  font-weight: 800;
-  font-size: 15px;
-  margin-bottom: 4px;
-  color: #0f172a;
-}
+    /* ===== Mobile hamburger ===== */
+    .menuBtn{
+      display:none;
+      margin-left:auto;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1;
+      width:auto;
+      margin-top:0;
+    }
 
-.personMeta{
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.35;
-}
+    /* Phone layout */
+    @media (max-width: 768px){
+      .navInner{
+        flex-wrap: wrap;
+        gap: 10px;
+      }
 
-.personLink{
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 13px;
-  color: var(--brand);
-  text-decoration: none;
-  font-weight: 700;
-}
+      /* show hamburger */
+      .menuBtn{ display:block; }
 
-.personLink:hover{
-  text-decoration: underline;
-}
+      /* hide tabs until open */
+      .tabs{
+        display:none;
+        width:100%;
+        margin-top:10px;
+        justify-content:flex-start;
+        flex-wrap:wrap;
+        gap:10px;
+      }
+      .tabs.open{
+        display:flex;
+      }
 
-/* Optional: make it 2 columns on wide screens */
-@media (min-width: 900px){
-  .people{
-    grid-template-columns: 1fr 1fr;
-  }
-}
-/* ================= MOBILE FRIENDLY ================= */
-@media (max-width: 768px){
+      .tabBtn{
+        padding:10px 14px;
+        font-size:13px;
+      }
 
-  /* Navbar stacks nicely */
-  .navInner{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+      .wrap{
+        padding: 16px 12px 30px;
+      }
 
-  /* Tabs wrap on smaller screens */
-  .tabs{
-    justify-content: flex-start;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 6px;
-  }
+      .hero h1{
+        font-size: 22px;
+      }
 
-  /* Buttons get easier to tap */
-  .tabBtn{
-    padding: 10px 14px;
-    font-size: 13px;
-  }
+      /* tables scroll on phone */
+      table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+      }
 
-  /* Cards go full width */
-  .card{
-    grid-column: span 12;
-  }
-
-  /* Better spacing */
-  .wrap{
-    padding: 16px 12px 30px;
-  }
-
-  /* Hero text scales better */
-  .hero h1{
-    font-size: 22px;
-  }
-
-  /* Tables scroll instead of breaking the page */
-  table{
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  /* Students list: 1 column */
-  .people{
-    grid-template-columns: 1fr;
-  }
+      /* students 1 column on phone */
+      .people{
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -220,7 +245,10 @@
           <span>PRISMS</span>
         </div>
 
-        <div class="tabs">
+        <!-- Hamburger button (shows on phone) -->
+        <button class="menuBtn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+        <div class="tabs" id="navTabs">
           <button class="tabBtn active" onclick="openTab('overview', this)">Overview</button>
           <button class="tabBtn" onclick="openTab('scope', this)">Scope</button>
           <button class="tabBtn" onclick="openTab('timeline', this)">Timeline</button>
@@ -246,7 +274,7 @@
           </div>
           <div class="card">
             <h3>Goal</h3>
-            <p>Provide engineering plans/calculations to support permitting and construction (as a student deliverable package).</p>
+            <p>type here.</p>
           </div>
         </div>
       </div>
@@ -255,7 +283,7 @@
       <div id="scope" class="panel">
         <div class="hero">
           <h1>Project Scope</h1>
-          <p>Major discipline responsibilities summarized from the drafted scope of work.</p>
+          <p>type here.</p>
         </div>
 
         <div class="grid">
@@ -300,7 +328,7 @@
       <div id="timeline" class="panel">
         <div class="hero">
           <h1>Timeline (Draft)</h1>
-          <p>This timeline is a draft of recommended activities (align with syllabus/Canvas as needed).</p>
+          <p>This timeline is a draft of recommended activities.</p>
         </div>
 
         <div class="card" style="grid-column: span 12;">
@@ -375,74 +403,92 @@
         <div class="grid">
           <div class="card">
             <h3>Community Partner (Client)</h3>
-            <p><strong>Christopher Golliher, P.E.</strong><br/>Project Manager<br/>865.251.5341<br/><a 												href="mailto:cgolliher@ardurra.com">cgolliher@ardurra.com</a></p>
+            <p>
+              <strong>Christopher Golliher, P.E.</strong><br/>
+              Project Manager<br/>
+              <a href="tel:8652515341">(865) 251-5341</a><br/>
+              <a href="mailto:cgolliher@ardurra.com">cgolliher@ardurra.com</a>
+            </p>
           </div>
 
           <div class="card">
             <h3>Project Technical Mentor</h3>
-            <p><strong>Blyth Lundberg, E.I.</strong><br/>(865) 251-5350<br/><a href="mailto:blundberg@ardurra.com">blundberg@ardurra.com</a></p>
+            <p>
+              <strong>Blyth Lundberg, E.I.</strong><br/>
+              <a href="tel:8652515350">(865) 251-5350</a><br/>
+              <a href="mailto:blundberg@ardurra.com">blundberg@ardurra.com</a>
+            </p>
           </div>
 
           <div class="card">
             <h3>UT Project Contacts</h3>
-            <p><strong>Benjamin Fennell</strong><br/>Teaching Professor<br/>(865) 974-7597<br/><a href="mailto:Benjamin.fennell@utk.edu">Benjamin.fennell@utk.edu</a></p>
-            <p style="margin-top:10px;"><strong>Noah Simmons</strong><br/>Teaching Assistant<br/><a href="mailto:nsimmo12@vols.utk.edu">nsimmo12@vols.utk.edu</a></p>
+            <p>
+              <strong>Benjamin Fennell</strong><br/>
+              Teaching Professor<br/>
+              <a href="tel:8659747597">(865) 974-7597</a><br/>
+              <a href="mailto:Benjamin.fennell@utk.edu">Benjamin.fennell@utk.edu</a>
+            </p>
+            <p style="margin-top:10px;">
+              <strong>Noah Simmons</strong><br/>
+              Teaching Assistant<br/>
+              <a href="mailto:nsimmo12@vols.utk.edu">nsimmo12@vols.utk.edu</a>
+            </p>
           </div>
 
+          <!-- Students card (single card, no card-inside-card) -->
           <div class="card">
-  <h3>Students</h3>
+            <h3>Students</h3>
 
-  <div class="people">
-    <div class="person">
-      <div class="personName">Olivia Bennett</div>
-      <div class="personMeta">Environmental</div>
-      <div class="personMeta">(615) 290-0609</div>
-      <a class="personLink" href="mailto:obennet2@vols.utk.edu">obennet2@vols.utk.edu</a>
-    </div>
+            <div class="people">
+              <div class="person">
+                <div class="personName">Olivia Bennett</div>
+                <div class="personMeta">Environmental</div>
+                <div class="personMeta"><a href="tel:6152900609">(615) 290-0609</a></div>
+                <a class="personLink" href="mailto:obennet2@vols.utk.edu">obennet2@vols.utk.edu</a>
+              </div>
 
-    <div class="person">
-      <div class="personName">Irving Chavez Charles</div>
-      <div class="personMeta">Site Civil</div>
-      <div class="personMeta">(865) 824-7155</div>
-      <a class="personLink" href="mailto:ichavezc@vols.utk.edu">ichavezc@vols.utk.edu</a>
-    </div>
+              <div class="person">
+                <div class="personName">Irving Chavez Charles</div>
+                <div class="personMeta">Site Civil</div>
+                <div class="personMeta"><a href="tel:8658247155">(865) 824-7155</a></div>
+                <a class="personLink" href="mailto:ichavezc@vols.utk.edu">ichavezc@vols.utk.edu</a>
+              </div>
 
-    <div class="person">
-      <div class="personName">Makenna Mercer</div>
-      <div class="personMeta">Construction</div>
-      <div class="personMeta">(423) 486-8207</div>
-      <a class="personLink" href="mailto:xrl723@vols.utk.edu">xrl723@vols.utk.edu</a>
-    </div>
+              <div class="person">
+                <div class="personName">Makenna Mercer</div>
+                <div class="personMeta">Construction</div>
+                <div class="personMeta"><a href="tel:4234868207">(423) 486-8207</a></div>
+                <a class="personLink" href="mailto:xrl723@vols.utk.edu">xrl723@vols.utk.edu</a>
+              </div>
 
-    <div class="person">
-      <div class="personName">Sahil Patel</div>
-      <div class="personMeta">Transportation</div>
-      <div class="personMeta">(865) 974-7597</div>
-      <a class="personLink" href="mailto:spate184@vols.utk.edu">spate184@vols.utk.edu</a>
-    </div>
+              <div class="person">
+                <div class="personName">Sahil Patel</div>
+                <div class="personMeta">Transportation</div>
+                <div class="personMeta"><a href="tel:8659747597">(865) 974-7597</a></div>
+                <a class="personLink" href="mailto:spate184@vols.utk.edu">spate184@vols.utk.edu</a>
+              </div>
 
-    <div class="person">
-      <div class="personName">Caleb Perruzza</div>
-      <div class="personMeta">Transportation</div>
-      <div class="personMeta">(720) 955-5113</div>
-      <a class="personLink" href="mailto:cperruzz@vols.utk.edu">cperruzz@vols.utk.edu</a>
-    </div>
+              <div class="person">
+                <div class="personName">Caleb Perruzza</div>
+                <div class="personMeta">Transportation</div>
+                <div class="personMeta"><a href="tel:7209555113">(720) 955-5113</a></div>
+                <a class="personLink" href="mailto:cperruzz@vols.utk.edu">cperruzz@vols.utk.edu</a>
+              </div>
 
-    <div class="person">
-      <div class="personName">Mason Rice</div>
-      <div class="personMeta">Site Civil</div>
-      <div class="personMeta">(603) 490-4420</div>
-      <a class="personLink" href="mailto:mrice36@vols.utk.edu">mrice36@vols.utk.edu</a>
-    </div>
+              <div class="person">
+                <div class="personName">Mason Rice</div>
+                <div class="personMeta">Site Civil</div>
+                <div class="personMeta"><a href="tel:6034904420">(603) 490-4420</a></div>
+                <a class="personLink" href="mailto:mrice36@vols.utk.edu">mrice36@vols.utk.edu</a>
+              </div>
 
-    <div class="person">
-      <div class="personName">Jaelyn Spears</div>
-      <div class="personMeta">Geotechnical</div>
-      <div class="personMeta">(619) 654-3651</div>
-      <a class="personLink" href="mailto:jspears9@vols.utk.edu">jspears9@vols.utk.edu</a>
-    </div>
-  </div>
-</div>
+              <div class="person">
+                <div class="personName">Jaelyn Spears</div>
+                <div class="personMeta">Geotechnical</div>
+                <div class="personMeta"><a href="tel:6196543651">(619) 654-3651</a></div>
+                <a class="personLink" href="mailto:jspears9@vols.utk.edu">jspears9@vols.utk.edu</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -479,8 +525,19 @@
 
       document.querySelectorAll(".tabBtn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
+
+      closeMenuOnMobile(); // auto-close hamburger menu on phone
+    }
+
+    function toggleMenu(){
+      document.getElementById("navTabs").classList.toggle("open");
+    }
+
+    function closeMenuOnMobile(){
+      if (window.innerWidth <= 768){
+        document.getElementById("navTabs").classList.remove("open");
+      }
     }
   </script>
 </body>
-
 </html>
