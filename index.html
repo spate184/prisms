@@ -216,6 +216,27 @@
       .people{
         grid-template-columns: 1fr;
       }
+		.challengeCard{
+  overflow: hidden;
+  padding: 0;
+}
+
+.challengeImg{
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.challengeCard h3{
+  padding: 16px 16px 6px 16px;
+}
+
+.challengeCard p{
+  padding: 0 16px 16px 16px;
+}
+
     }
   </style>
 </head>
@@ -250,6 +271,7 @@
 
         <div class="tabs" id="navTabs">
           <button class="tabBtn active" onclick="openTab('overview', this)">Overview</button>
+		  <button class="tabBtn" onclick="openTab('grand', this)">Grand Challenges</button>
           <button class="tabBtn" onclick="openTab('scope', this)">Scope</button>
           <button class="tabBtn" onclick="openTab('timeline', this)">Timeline</button>
           <button class="tabBtn" onclick="openTab('deliverables', this)">Deliverables</button>
@@ -281,7 +303,45 @@
           </div>
         </div>
       </div>
+	<!-- GRANDCHALENGES -->
+<div id="grand" class="panel">
 
+<div class="hero">
+<h1>Grand Challenges</h1>
+<p>
+This project aligns with several United Nations Sustainable Development
+Goals related to infrastructure, sustainability, and environmental protection.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card challengeCard">
+<img src="sdg6.png" class="challengeImg">
+<h3>Clean Water & Sanitation</h3>
+<p>Stormwater design protects streams and manages runoff.</p>
+</div>
+
+<div class="card challengeCard">
+<img src="sdg9.png" class="challengeImg">
+<h3>Industry & Infrastructure</h3>
+<p>Transportation access and utilities support reliable infrastructure.</p>
+</div>
+
+<div class="card challengeCard">
+<img src="sdg11.png" class="challengeImg">
+<h3>Sustainable Communities</h3>
+<p>The project integrates responsible land use and public safety.</p>
+</div>
+
+<div class="card challengeCard">
+<img src="sdg13.png" class="challengeImg">
+<h3>Climate Action</h3>
+<p>Hydrologic analysis prepares the site for storm events and climate impacts.</p>
+</div>
+
+</div>
+</div>
       <!-- SCOPE -->
       <div id="scope" class="panel">
         <div class="hero">
